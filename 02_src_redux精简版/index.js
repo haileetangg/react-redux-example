@@ -3,17 +3,13 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import store from './redux/store'
 
-ReactDOM.createRoot(document.getElementById('root'))
-    .render(
-      <React.StrictMode>
-        <App/>
-      </React.StrictMode>
-    )
-// store.subscribe(()=>{
-//     ReactDOM.createRoot(document.getElementById('root'))
-//     .render(
-//       <React.StrictMode>
-//         <App/>
-//       </React.StrictMode>
-//     )
-// })
+const root = ReactDOM.createRoot(document.getElementById('root'))
+const appRender = () => {
+  root.render(
+    <React.StrictMode>
+      <App/>
+    </React.StrictMode>
+  )
+}
+appRender()
+store.subscribe(appRender)

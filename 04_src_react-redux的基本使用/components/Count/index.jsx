@@ -1,17 +1,32 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export default class Count extends Component {
+  async componentDidMount(){
+    try {
+      const response = await axios.get('/data.json');
+      console.log(response, 'res');
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
   increment = () =>{
     const { value } = this.selectNumber
+    this.props.jia(value*1)
   }
   decrement= () =>{
     const { value } = this.selectNumber
+    this.props.jian(value*1)
   }
   incrementOdd= () =>{
     const { value } = this.selectNumber
+    if(this.props.count % 2 !== 0){
+      this.props.jia(value*1)
+    }
   }
   incrementAsync= () =>{
     const { value } = this.selectNumber
+    this.props.asyncJia(value*1,500)
   }
   render() {
     console.log(this.props,'this.props')

@@ -5,12 +5,12 @@ export default class Count extends Component {
   state = {
     // count:0
   }
-  componentDidMount(){
-    //检测redux中状态的变化，只要变化就调用render
-    store.subscribe(()=>{
-      this.setState({})
-    })
-  }
+  // componentDidMount(){
+  //   //检测redux中状态的变化，只要变化就调用render
+  //   store.subscribe(()=>{
+  //     this.setState({})
+  //   })
+  // }
   increment = () =>{
     const { value } = this.selectNumber
     // 通知redux + value
